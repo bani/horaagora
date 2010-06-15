@@ -18,7 +18,7 @@
                 $("#hour").text(data.hour);
 				$("#minute").text(data.minute);
 				_gaq.push(['_trackEvent', 'Time', 'Update']);
-                window.setTimeout("atualizaConteudo()", 60*1000);
+                window.setTimeout("atualizaConteudo()", data.update * 1000);
             });
         }
         $(document).ready(function(){
@@ -31,21 +31,26 @@
 			font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
 		}
 		div.time {
-			margin-top: 200px;
+			margin-top: 150px;
 			color: #ccffcc;
-			font-size: 10em;
+			font-size: 8em;
 			font-weight: bold;
 		}
 		div#data {
 			color: #99cccc;
-			font-size: 5em;
+			font-size: 4em;
+		}
+		div#other {
+			margin-top: 150px;
+			color: #aaaaaa;
+			font-size: 1em;
 		}
 		body {background-color: #222222;}
 	</style>
 </head>
 <body>
-    <div class="time"><span id="hour"></span><blink>:</blink><span id="minute"></span></div><!-- blink = piada interna -->
+    <div class="time"><span id="hour">--</span><blink>:</blink><span id="minute">--</span></div><!-- blink = piada interna -->
     <div id="data"></div>
-	<!-- Em breve, nova funcionalidade:"nao perca a hora" -->
+	<div id="other"><p>Em breve, novas funcionalidades: cronometro, pomodoro, convers&atilde;o de timezones, lembretes via e-mail, etc</p></div>
 </body>
 </html>

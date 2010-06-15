@@ -22,7 +22,8 @@ class HoraPage(webapp.RequestHandler):
         json = {
                 "date" : d.strftime("%d/%m/%Y"),
                 "hour" : d.hour,
-                "minute" : d.strftime("%M")
+                "minute" : d.strftime("%M"),
+                "update" : 60 - d.second
                 }
         self.response.out.write(simplejson.dumps(json));
 
