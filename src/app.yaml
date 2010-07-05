@@ -7,8 +7,17 @@ handlers:
 
 - url: /hora.json
   script: horaagora.py
+  
+- url: /mapa.json
+  script: mapa.py
 
 - url: /
   upload: static/index.html
   static_files: static/index.html
+  
+- url: /mundo
+  upload: mapa/index.html
+  static_files: mapa/index.html
 
+- url: /mapa
+  static_dir: mapa

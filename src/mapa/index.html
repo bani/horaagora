@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+        </script>
+        <style type="text/css">
+        	
+			div {
+				font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+			}
+            
+            #div_main {
+                margin-top: 20px;
+                margin-left: 10px;
+                margin-right: 10px;
+            }
+            
+            #div_content {
+                background-color: #ccffcc;
+                border: 2px #aaaaaa;
+                margin-top: 0px;
+                padding: 4px;
+                overflow: auto;
+            }
+            
+            .div_map_infowindow {
+                text-align: center;
+            }
+            
+            .div_map {
+            }
+            
+            #map_canvas {
+                height: 100%;
+            }
+            
+            body {
+                background-color: #222222;
+            }
+        </style>
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-4126737-4']);
+            _gaq.push(['_setDomainName', '.horaagora.com']);
+            _gaq.push(['_trackPageview']);
+            
+            (function(){
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+    </head>
+    <body>
+        <div id="div_main">
+            <div id="div_content">
+                <script type="text/javascript" src="mapa/map.js">
+                </script>
+                <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false">
+                </script>
+                <div class="div_map">
+                    <div id="map_canvas">
+                        Consultando rel&oacute;gios...
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
