@@ -14,6 +14,7 @@ class BR_tzinfo(datetime.tzinfo):
         dst_start = self._FirstSunday(datetime.datetime(dt.year, 10, 15, 0))
         # terceiro domingo de fevereiro
         dst_end = self._FirstSunday(datetime.datetime(dt.year, 2, 15, 0))
+        #TODO: Considerar Carnaval
 
         if dst_start <= dt.replace(tzinfo=None) < dst_end:
             return datetime.timedelta(hours=1)

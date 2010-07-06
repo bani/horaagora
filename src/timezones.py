@@ -1,4 +1,4 @@
-'''tzinfo timezone information for Europe/London.'''
+'''Subset of the classes found on pytz - http://pytz.sf.net'''
 from tzinfo import DstTzInfo
 from tzinfo import memorized_datetime as d
 from tzinfo import memorized_ttinfo as i
@@ -34,7 +34,6 @@ i(3600,3600,'BST'),
 i(0,0,'GMT'),
         ]
 
-'''tzinfo timezone information for America/New_York.'''
 class New_York(DstTzInfo):
     '''America/New_York timezone definition. See datetime.tzinfo for details'''
 
@@ -66,7 +65,6 @@ i(-14400,3600,'EDT'),
 i(-18000,0,'EST'),
         ]
 
-'''tzinfo timezone information for America/Los_Angeles.'''
 class Los_Angeles(DstTzInfo):
     '''America/Los_Angeles timezone definition. See datetime.tzinfo for details'''
 
@@ -98,7 +96,36 @@ i(-25200,3600,'PDT'),
 i(-28800,0,'PST'),
         ]
 
-'''tzinfo timezone information for Africa/Johannesburg.'''
+class Chicago(DstTzInfo):
+    '''America/Chicago timezone definition. See datetime.tzinfo for details'''
+
+    zone = 'America/Chicago'
+
+    _utc_transition_times = [
+d(2010,3,14,8,0,0),
+d(2010,11,7,7,0,0),
+d(2011,3,13,8,0,0),
+d(2011,11,6,7,0,0),
+d(2012,3,11,8,0,0),
+d(2012,11,4,7,0,0),
+d(2013,3,10,8,0,0),
+d(2013,11,3,7,0,0),
+d(2014,3,9,8,0,0),
+d(2014,11,2,7,0,0),
+        ]
+    _transition_info = [
+i(-18000,3600,'CDT'),
+i(-21600,0,'CST'),
+i(-18000,3600,'CDT'),
+i(-21600,0,'CST'),
+i(-18000,3600,'CDT'),
+i(-21600,0,'CST'),
+i(-18000,3600,'CDT'),
+i(-21600,0,'CST'),
+i(-18000,3600,'CDT'),
+i(-21600,0,'CST'),
+        ]
+
 class Johannesburg(DstTzInfo):
     '''Africa/Johannesburg timezone definition. See datetime.tzinfo for details'''
 
@@ -112,7 +139,6 @@ d(1944,3,18,23,0,0),
 i(7200,0,'SAST'),
         ]
 
-'''tzinfo timezone information for Asia/Tokyo.'''
 class Tokyo(DstTzInfo):
     '''Asia/Tokyo timezone definition. See datetime.tzinfo for details'''
 
@@ -125,3 +151,18 @@ d(1951,9,7,16,0,0),
     _transition_info = [
 i(32400,0,'JST'),
         ]
+    
+class India(DstTzInfo):
+    '''Asia/India timezone definition. See datetime.tzinfo for details'''
+
+    zone = 'Asia/India'
+
+    _utc_transition_times = [
+d(1,1,1,0,0,0),
+        ]
+
+    _transition_info = [
+i(19800,0,'IST'),
+        ]
+    
+

@@ -43,6 +43,7 @@ function add_marker(lat, lng, time, location){
             infowindows[i].close();
         }
         infowindow.open(map, marker);
+		_gaq.push(['_trackEvent', 'Map', location]);
     });
 	google.maps.event.addListener(marker, 'mouseout', function(event){
 		infowindow.close(map, marker);
