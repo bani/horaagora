@@ -3,6 +3,8 @@ from google.appengine.ext.webapp.util import run_wsgi_app
 import datetime
 import br
 import timezones
+import cgi
+import math
 
 try:
     import simplejson
@@ -40,8 +42,22 @@ class Mapa(webapp.RequestHandler):
         json.append({"lat": "28.635308", "lng": "77.22496", "location": "New Delhi", "time": d.strftime("%H:%M")})
 
         self.response.out.write(simplejson.dumps(json));
+        
+class New(webapp.RequestHandler):
+    def get(self):
+        lng = float(cgi.escape(self.request.get('lng')))
+        offset = math.floor(lng / 15) if lng > 0 else math.ceil(lng / 15)
+        d = datetime.datetime.now() + datetime.timedelta(hours=offset)
+        
+        self.response.headers['Content-Type'] = 'application/json'
+        
 
-application = webapp.WSGIApplication([('/mapa.json', Mapa)], debug=True)
+        json = {
+                "time" : d.strftime("%H:%M")
+                }
+        self.response.out.write(simplejson.dumps(json));
+
+application = webapp.WSGIApplication([('/mapa.json', Mapa), ('/mapa.json/new', New)], debug=True)
 
 
 def main():

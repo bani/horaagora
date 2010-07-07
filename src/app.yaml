@@ -8,7 +8,7 @@ handlers:
 - url: /hora.json
   script: horaagora.py
   
-- url: /mapa.json
+- url: /mapa.json.*
   script: mapa.py
 
 - url: /

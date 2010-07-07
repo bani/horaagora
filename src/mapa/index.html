@@ -2,12 +2,28 @@
 <html>
     <head>
         <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Description" content="Saiba que horas s&atilde;o em qualquer lugar do mundo. Clique no mapa e veja o hor&aacute;rio local em cada cidade."/>
+        <meta http-equiv="Keywords" content="hora, horario, fuso, viagem"/>
+        <title>Hora Agora</title>
         <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
         </script>
         <style type="text/css">
-        	
-			div {
-				font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+            
+            div {
+                font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+            }
+            
+            div.info {
+                margin-top: 10px;
+                color: #aaaaaa;
+            }
+			
+			p.main {
+				font-size: 0.8em;
+			}
+			
+			p.more {
+				font-size: 0.6em;
 			}
             
             #div_main {
@@ -34,6 +50,11 @@
             #map_canvas {
                 height: 100%;
             }
+			
+			#flattr {
+                text-align: center;
+				margin-top: 10px;
+            }
             
             body {
                 background-color: #222222;
@@ -57,6 +78,14 @@
     </head>
     <body>
         <div id="div_main">
+            <div id="sobre" class="info">
+                <p class="main">
+                    Passe o mouse sobre um rel&oacute;gio para ver que horas s&atilde;o naquela cidade.
+                </p>
+                <p class="more">
+                    Voc&ecirc; pode adicionar novos rel&oacute;gios clicando no mapa. Esses ter&atilde;o o hor&aacute;rio calculado com base na longitude, podendo haver discrep&acirc;ncia em rela&ccedil;&atilde;o ao hor&aacute;rio real devido a hor&aacute;rio de ver&atilde;o e decis&otilde;es geopol&iacute;ticas.
+                </p>
+            </div>
             <div id="div_content">
                 <script type="text/javascript" src="mapa/map.js">
                 </script>
@@ -68,6 +97,7 @@
                     </div>
                 </div>
             </div>
+			<div id="flattr"><a href="http://flattr.com/thing/2077/Baniverso" target="_blank" onClick="_gaq.push(['_trackEvent', 'Money', 'Flattr']);"><img src="http://api.flattr.com/button/button-compact-static-100x17.png" alt="Flattr this" title="Flattr this" border="0" /></a></div>
         </div>
     </body>
 </html>

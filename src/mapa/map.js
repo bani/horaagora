@@ -1,8 +1,7 @@
 /**
-* This script is based on a work by Chester (http://chester.blog.br)
-* The globe with clock marker is licensed as CC-BY-SA, based on the work at http://commons.wikimedia.org/wiki/File:Globe_current.svg
-*/
-
+ * This script is based on a work by Chester (http://chester.blog.br)
+ * The globe with clock marker is licensed as CC-BY-SA, based on the work at http://commons.wikimedia.org/wiki/File:Globe_current.svg
+ */
 var map;
 var infowindows = [];
 var markers;
@@ -24,12 +23,19 @@ function load_map(){
             }
         }
     });
+    google.maps.event.addListener(map, "click", function(event){
+        $.getJSON('mapa.json/new?lng=' + event.latLng.lng(), function(data){
+			add_marker(event.latLng.lat() , event.latLng.lng(), data.time, '*');
+            
+        });
+        _gaq.push(['_trackEvent', 'Map', 'Other', event.latLng.toUrlValue(1)]);
+    });
 }
 
 function add_marker(lat, lng, time, location){
     var latlng = new google.maps.LatLng(lat, lng);
     var infowindow = new google.maps.InfoWindow({
-        content: '<div class="div_map_infowindow"><h1>'+time+'</h1><h2>'+location+'</h2></div>'
+        content: '<div class="div_map_infowindow"><h1>' + time + '</h1><h2>' + location + '</h2></div>'
     });
     infowindows.push(infowindow);
     var marker = new google.maps.Marker({
@@ -43,11 +49,11 @@ function add_marker(lat, lng, time, location){
             infowindows[i].close();
         }
         infowindow.open(map, marker);
-		_gaq.push(['_trackEvent', 'Map', location]);
+        _gaq.push(['_trackEvent', 'Map', location]);
     });
-	google.maps.event.addListener(marker, 'mouseout', function(event){
-		infowindow.close(map, marker);
-	});
+    google.maps.event.addListener(marker, 'mouseout', function(event){
+        infowindow.close(map, marker);
+    });
 }
 
 
@@ -57,12 +63,12 @@ function adjust_map_height(){
 }
 
 $(document).ready(function(){
-	$.getJSON('mapa.json', function(data) {
-		markers = eval(data);
-	    adjust_map_height();
-	    load_map();
-	    $(window).resize(function(){
-	        adjust_map_height();
-	    });
-	});
+    $.getJSON('mapa.json', function(data){
+        markers = eval(data);
+        adjust_map_height();
+        load_map();
+        $(window).resize(function(){
+            adjust_map_height();
+        });
+    });
 });
