@@ -1,0 +1,50 @@
+div {
+    text-align: center;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    color: #aaaaaa;
+}
+
+div.time {
+    margin-top: 150px;
+    color: #ccffcc;
+    font-size: 8em;
+    font-weight: bold;
+}
+
+div#data {
+    color: #99cccc;
+    font-size: 4em;
+}
+
+div.vspace {
+    margin-top: 150px;
+    font-size: 1em;
+}
+
+div#about {
+    visibility: hidden;
+    font-size: x-small;
+}
+
+div.share {
+    margin-top: 10px;
+}
+
+body {
+    background-color: #222222;
+    font-family: helvetica, sans-serif;
+    font-size: 12px;
+}
+
+a.stbar.chicklet img {
+    border: 0;
+    height: 16px;
+    width: 16px;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+a.stbar.chicklet {
+    height: 16px;
+    line-height: 16px;
+}
