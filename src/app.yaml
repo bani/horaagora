@@ -1,5 +1,5 @@
 application: bani
-version: 1
+version: 2
 runtime: python
 api_version: 1
 
@@ -12,8 +12,12 @@ handlers:
   script: mapa.py
 
 - url: /
-  upload: static/index.html
-  static_files: static/index.html
+  upload: html/index.html
+  static_files: html/index.html
+  
+- url: /timer
+  upload: html/timer.html
+  static_files: html/timer.html
   
 - url: /mundo
   upload: mapa/index.html
@@ -21,3 +25,6 @@ handlers:
 
 - url: /mapa
   static_dir: mapa
+
+- url: /style
+  static_dir: style
