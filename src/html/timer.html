@@ -34,19 +34,19 @@
 			audioElement.setAttribute('src', 'style/timer.ogg');
 
             function initializeTimer(tempo){
-                stopTheClock();
+                stopTimer();
                 if (validateTime(tempo)) {
-                    startTheTimer();
+                    countdown();
                 }
             }
             
             function validateTime(tempo){
                 t = tempo.split(':');
                 if (t.length > 1) {
-                    secs = parseInt(t[0]) * 60 + parseInt(t[1]);
+                    secs = parseInt(t[0],10) * 60 + parseInt(t[1],10);
                 }
                 else {
-                    secs = parseInt(tempo);
+                    secs = parseInt(tempo,10);
                 }
                 if (isNaN(secs) || tempo.indexOf(':') != tempo.lastIndexOf(':')) {
                     $.prompt('Digite o tempo no formato<br/>MM:SS<br/><br/><input type="text" id="alertName" name="alertName" value="02:00" />', {
@@ -61,16 +61,16 @@
                 return true;
             }
             
-            function stopTheClock(){
+            function stopTimer(){
                 if (timerRunning) 
                     clearTimeout(timerID);
                 timerRunning = false;
             }
             
-            function startTheTimer(){
+            function countdown(){
                 printTime(secs);
                 if (secs == 0) {
-                    stopTheClock()
+                    stopTimer()
                     $.prompt('Tempo Esgotado!');
 					audioElement.play();
                     _gaq.push(['_trackEvent', 'Cronometro', 'Stop', 'Tempo', secs]);
@@ -78,7 +78,7 @@
                 else {
                     secs = secs - 1;
                     timerRunning = true;
-                    timerID = self.setTimeout("startTheTimer()", delay);
+                    timerID = self.setTimeout("countdown()", delay);
                 }
             }
             
