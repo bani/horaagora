@@ -31,9 +31,13 @@ div.timer {
     margin-top: 50px;
 }
 
-a.timer:link {color: #99cccc;font-size: 2em;}
-a.timer:active {color: #99cccc;font-size: 2em;}
-a.timer:visited {color: #99cccc;font-size: 2em;}
+a#reiniciar:link {color: #99cccc;font-size: 2em;}
+a#reiniciar:active {color: #99cccc;font-size: 2em;}
+a#reiniciar:visited {color: #99cccc;font-size: 2em;}
+
+a#bookmark:link {color: #99cccc;}
+a#bookmark:active {color: #99cccc;}
+a#bookmark:visited {color: #99cccc;}
 
 div.share {
     margin-top: 10px;

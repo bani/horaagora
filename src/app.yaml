@@ -28,3 +28,6 @@ handlers:
 
 - url: /style
   static_dir: style
+  
+- url: /js
+  static_dir: js
