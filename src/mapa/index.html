@@ -28,8 +28,8 @@
             
             #div_main {
                 margin-top: 20px;
-                margin-left: 10px;
-                margin-right: 10px;
+                margin-left: 20px;
+                margin-right: 20px;
             }
             
             #div_content {
@@ -97,7 +97,30 @@
                     </div>
                 </div>
             </div>
-			<div id="flattr"><a href="http://flattr.com/thing/2077/Baniverso" target="_blank" onClick="_gaq.push(['_trackEvent', 'Money', 'Flattr']);"><img src="http://api.flattr.com/button/button-compact-static-100x17.png" alt="Flattr this" title="Flattr this" border="0" /></a></div>
         </div>
+		<script type="text/javascript">
+			var uservoiceOptions = {
+			  /* required */
+			  key: 'bani',
+			  host: 'bani.uservoice.com', 
+			  forum: '75341',
+			  showTab: true,  
+			  /* optional */
+			  alignment: 'right',
+			  background_color:'#99CCCC', 
+			  text_color: 'black',
+			  hover_color: '#CCFFCC',
+			  lang: 'en'
+			};
+			
+			function _loadUserVoice() {
+			  var s = document.createElement('script');
+			  s.setAttribute('type', 'text/javascript');
+			  s.setAttribute('src', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
+			  document.getElementsByTagName('head')[0].appendChild(s);
+			}
+			_loadSuper = window.onload;
+			window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+		</script>
     </body>
 </html>
