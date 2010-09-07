@@ -17,7 +17,7 @@ div#data {
 }
 
 div.vspace {
-    margin-top: 150px;
+    margin-top: 120px;
     font-size: 1em;
 }
 
@@ -25,6 +25,15 @@ div#about {
     visibility: hidden;
     font-size: x-small;
 }
+
+div.timer {
+    display: none;
+    margin-top: 50px;
+}
+
+a.timer:link {color: #99cccc;font-size: 2em;}
+a.timer:active {color: #99cccc;font-size: 2em;}
+a.timer:visited {color: #99cccc;font-size: 2em;}
 
 div.share {
     margin-top: 10px;

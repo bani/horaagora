@@ -32,6 +32,10 @@
 			
 			var audioElement = document.createElement('audio');
 			audioElement.setAttribute('src', 'style/timer.ogg');
+			audioElement.addEventListener('ended', function(){
+				this.currentTime = 0;
+			}, false);
+
 
             function initializeTimer(tempo){
                 stopTimer();
@@ -71,7 +75,12 @@
                 printTime(secs);
                 if (secs == 0) {
                     stopTimer()
-                    $.prompt('Tempo Esgotado!');
+					$.prompt('Tempo Esgotado!', {
+	                    callback: callbackStop,
+	                    buttons: {
+	                        Ok: 'Ok'
+	                    }
+                	});
 					audioElement.play();
                     _gaq.push(['_trackEvent', 'Cronometro', 'Stop', 'Tempo', secs]);
                 }
@@ -80,6 +89,11 @@
                     timerRunning = true;
                     timerID = self.setTimeout("countdown()", delay);
                 }
+            }
+			
+			function callbackStop(v, m, f){
+            	audioElement.pause();
+				$('.timer').show();
             }
             
             function printTime(secs){
@@ -93,7 +107,7 @@
                 $("#second").text(second);
             }
             
-            function callbackOk(v, m, f){
+            function callbackStart(v, m, f){
                 if (v != undefined) {
                     initializeTimer(f.alertName);
                     _gaq.push(['_trackEvent', 'Cronometro', 'Start', 'Tempo', secs]);
@@ -102,37 +116,21 @@
             
             $(document).ready(function(){
                 $.prompt('<br />Digite o tempo para contagem regressiva:<br /><br /><input type="text" id="alertName" name="alertName" value="02:00" />', {
-                    callback: callbackOk,
+                    callback: callbackStart,
                     buttons: {
                         Iniciar: 'Ok'
                     }
                 });
             });
         </script>
-        <!-- Share This -->
-        <script type="text/javascript" src="http://w.sharethis.com/button/sharethis.js#publisher=0c420224-15ff-4d23-987a-858382d4aff7&amp;type=website&amp;post_services=email%2Cfacebook%2Ctwitter%2Cgbuzz%2Cdigg%2Cdelicious%2Cgoogle_bmarks%2Clinkedin&amp;button=false">
-        </script>
     </head>
     <body>
-        <div id="flattr" class="share">
-            <a href="http://flattr.com/thing/2077/Baniverso" target="_blank" onClick="_gaq.push(['_trackEvent', 'Money', 'Flattr']);"><img src="http://api.flattr.com/button/button-compact-static-100x17.png" alt="Flattr this" title="Flattr this" border="0" /></a>
-        </div>
-        <div id="sharethis" class="share">
-            <a id="ck_email" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/email.gif" /></a><a id="ck_facebook" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/facebook.gif" /></a><a id="ck_twitter" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/twitter.gif" /></a><a id="ck_sharethis" class="stbar chicklet" href="javascript:void(0);"><img src="http://w.sharethis.com/chicklets/sharethis.gif" /></a>
-            <script type="text/javascript">
-                var shared_object = SHARETHIS.addEntry({
-                    title: document.title,
-                    url: document.location.href
-                });
-                
-                shared_object.attachButton(document.getElementById("ck_sharethis"));
-                shared_object.attachChicklet("email", document.getElementById("ck_email"));
-                shared_object.attachChicklet("facebook", document.getElementById("ck_facebook"));
-                shared_object.attachChicklet("twitter", document.getElementById("ck_twitter"));
-            </script>
-        </div>
         <div class="time">
             <span id="minute">--</span>:<span id="second">--</span>
+        </div>
+		
+		<div class="timer">
+            <a href="" class="timer">Reiniciar</a>
         </div>
 
         <div id="about">
