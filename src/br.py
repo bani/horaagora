@@ -10,10 +10,12 @@ class BR_tzinfo(datetime.tzinfo):
         return dt + datetime.timedelta(days=(6 - dt.weekday()))
 
     def dst(self, dt):
+        year = dt.year if dt.year > 6 else dt.year -1
+        
         # terceiro domingo de outubro
-        dst_start = self._FirstSunday(datetime.datetime(dt.year, 10, 15, 0))
+        dst_start = self._FirstSunday(datetime.datetime(year, 10, 15, 0))
         # terceiro domingo de fevereiro
-        dst_end = self._FirstSunday(datetime.datetime(dt.year+1, 2, 15, 0))
+        dst_end = self._FirstSunday(datetime.datetime(year+1, 2, 15, 0))
         #TODO: Considerar Carnaval
 
         if dst_start <= dt.replace(tzinfo=None) < dst_end:
