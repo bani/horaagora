@@ -45,7 +45,7 @@ var timer = {
             }
         });
         html5stuff.audioPlay();
-		html5stuff.notificationShow();
+        html5stuff.notificationShow();
         _gaq.push(['_trackEvent', 'Cronometro', 'Stop', 'Tempo', this.secs]);
     },
     
@@ -81,34 +81,46 @@ var html5stuff = {
             this.audioElement.addEventListener('ended', function(){
                 this.currentTime = 0; // toca em loop
             }, false);
-        }catch (err) {}
+        } 
+        catch (err) {}
     },
     audioPlay: function(){
         try {
             this.audioElement.play();
-        }catch (err) {}
+        } 
+        catch (err) {}
+    },
+    audioPause: function(){
+        try {
+            this.audioElement.pause();
+        } 
+        catch (err) {}
     },
     notificationPermission: function(){
         try {
             if (window.webkitNotifications && window.webkitNotifications.checkPermission() > 0) {
                 window.webkitNotifications.requestPermission();
             }
-        }catch (err) {}
+        } catch (err) {}
     },
-    
+    notificationElement: undefined,
     notificationShow: function(){
         try {
             if (window.webkitNotifications && window.webkitNotifications.checkPermission() == 0) {
-                window.webkitNotifications.createNotification("http://www.horaagora.com/style/cronometro.png", "Timer", "Tempo Esgotado!").show();
+                this.notificationElement = window.webkitNotifications.createNotification("http://www.horaagora.com/style/cronometro.png", "Timer", "Tempo Esgotado!");
+                this.notificationElement.onclose = function(){
+                    html5stuff.audioPause();
+                };
+                this.notificationElement.show();
             }
-        }catch (err) {}
+        } catch (err) {}
     }
 };
 
 
 var callback = {
     stop: function(v, m, f){
-        html5stuff.audioElement.pause();
+        html5stuff.audioPause();
         $('.timer').show();
         $('#bookmark').attr("href", document.location.href.split("?", 2)[0] + "?t=" + timer.time);
         $("#tempo").text(timer.time);
