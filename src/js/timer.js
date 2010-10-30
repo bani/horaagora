@@ -24,7 +24,7 @@ var timer = {
         }
         if (isNaN(this.secs) || tempo.indexOf(':') != tempo.lastIndexOf(':')) {
             $.prompt('Digite o tempo no formato<br/>MM:SS<br/><br/><input type="text" id="alertName" name="alertName" value="02:00" />', {
-                callback: callbackStart,
+                callback: callback.start,
                 buttons: {
                     Iniciar: 'Ok'
                 }
@@ -39,12 +39,13 @@ var timer = {
             clearTimeout(this.timerID);
         this.timerRunning = false;
         $.prompt('Tempo Esgotado!', {
-            callback: callbackStop,
+            callback: callback.stop,
             buttons: {
                 Ok: 'Ok'
             }
         });
-        audioElement.play();
+        html5stuff.audioPlay();
+		html5stuff.notificationShow();
         _gaq.push(['_trackEvent', 'Cronometro', 'Stop', 'Tempo', this.secs]);
     },
     
@@ -71,30 +72,62 @@ var timer = {
     }
 };
 
-var audioElement = document.createElement('audio');
-audioElement.setAttribute('src', 'style/timer.ogg');
-audioElement.addEventListener('ended', function(){
-    this.currentTime = 0;
-}, false);
-
-function callbackStop(v, m, f){
-    audioElement.pause();
-    $('.timer').show();
-    $('#bookmark').attr("href", document.location.href.split("?", 2)[0] + "?t=" + timer.time);
-    $("#tempo").text(timer.time);
-}
-
-function callbackStart(v, m, f){
-    if (v != undefined) {
-        timer.initializeTimer(f.alertName);
+var html5stuff = {
+    audioElement: undefined,
+    audioInit: function(){
+        try {
+            this.audioElement = document.createElement('audio');
+            this.audioElement.setAttribute('src', 'style/timer.ogg');
+            this.audioElement.addEventListener('ended', function(){
+                this.currentTime = 0; // toca em loop
+            }, false);
+        }catch (err) {}
+    },
+    audioPlay: function(){
+        try {
+            this.audioElement.play();
+        }catch (err) {}
+    },
+    notificationPermission: function(){
+        try {
+            if (window.webkitNotifications && window.webkitNotifications.checkPermission() > 0) {
+                window.webkitNotifications.requestPermission();
+            }
+        }catch (err) {}
+    },
+    
+    notificationShow: function(){
+        try {
+            if (window.webkitNotifications && window.webkitNotifications.checkPermission() == 0) {
+                window.webkitNotifications.createNotification("http://www.horaagora.com/style/cronometro.png", "Timer", "Tempo Esgotado!").show();
+            }
+        }catch (err) {}
     }
-}
+};
+
+
+var callback = {
+    stop: function(v, m, f){
+        html5stuff.audioElement.pause();
+        $('.timer').show();
+        $('#bookmark').attr("href", document.location.href.split("?", 2)[0] + "?t=" + timer.time);
+        $("#tempo").text(timer.time);
+    },
+    
+    start: function(v, m, f){
+        if (v != undefined) {
+            timer.initializeTimer(f.alertName);
+        }
+    }
+};
+
 
 $(document).ready(function(){
     var tempo = $.url.param("t");
+    html5stuff.audioInit();
     if (tempo == undefined || tempo == '') {
         $.prompt('<br />Digite o tempo para contagem regressiva:<br /><br /><input type="text" id="alertName" name="alertName" value="02:00" />', {
-            callback: callbackStart,
+            callback: callback.start,
             buttons: {
                 Iniciar: 'Ok'
             }

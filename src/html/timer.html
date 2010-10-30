@@ -31,9 +31,18 @@
         </div>
 		
 		<div class="timer">
-            <p><a href="" id="reiniciar">Reiniciar</a></p>
+            <p><a href="" class="big">Reiniciar</a></p>
 			<p>Gostaria de usar esse timer novamente?<br/>Coloque o link na sua barra de favoritos ->
 			<a href="" id="bookmark">Timer <span id="tempo"></span></a></p>
+        </div>
+		
+		<div class="enableNotification">
+			<script type="text/javascript">
+				if(window.webkitNotifications && window.webkitNotifications.checkPermission() > 0) {
+					$('.enableNotification').show();
+				}
+			</script>
+            <p><a href="" class="big" onclick="html5stuff.notificationPermission();$('.enableNotification').hide();return false;">Habilitar Notifica&ccedil;&otilde;es</a></p>
         </div>
 
         <div id="about">

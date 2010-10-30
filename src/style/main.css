@@ -31,9 +31,14 @@ div.timer {
     margin-top: 50px;
 }
 
-a#reiniciar:link {color: #99cccc;font-size: 2em;}
-a#reiniciar:active {color: #99cccc;font-size: 2em;}
-a#reiniciar:visited {color: #99cccc;font-size: 2em;}
+div.enableNotification {
+    display: none;
+    margin-top: 80px;
+}
+
+a.big:link {color: #99cccc;font-size: 2em;}
+a.big:active {color: #99cccc;font-size: 2em;}
+a.big:visited {color: #99cccc;font-size: 2em;}
 
 a#bookmark:link {color: #99cccc;}
 a#bookmark:active {color: #99cccc;}
