@@ -31,3 +31,7 @@ handlers:
   
 - url: /js
   static_dir: js
+  
+- url: /timer.manifest
+  upload: html/timer.manifest
+  static_files: html/timer.manifest

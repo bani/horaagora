@@ -46,6 +46,8 @@ var timer = {
         });
         html5stuff.audioPlay();
         html5stuff.notificationShow();
+        timer.timeIsUp = true;
+        this.toggleTitle();
         _gaq.push(['_trackEvent', 'Cronometro', 'Stop', 'Tempo', this.secs]);
     },
     
@@ -69,6 +71,34 @@ var timer = {
         if (second < 10) 
             second = '0' + second;
         $("#second").text(second);
+    },
+    
+    titleFrame: 0,
+    timeIsUp: false,
+    toggleTitle: function() {
+        this.titleFrame++;
+        var frame = this.titleFrame % 4;
+        switch(frame) {
+            case 0:
+                document.title = '| Tempo! |';
+                break;
+            case 1:
+                document.title = '/ Tempo! \\';
+                break;
+            case 2:
+                document.title = '-- Tempo! --';
+                break;
+            case 3:
+                document.title = '\\ Tempo! /';
+                break;
+        }
+
+        if (timer.timeIsUp) {
+            setTimeout("timer.toggleTitle()", 200);
+        } else {
+            document.title = 'Hora Agora';
+        }
+        
     }
 };
 
@@ -121,6 +151,7 @@ var html5stuff = {
 var callback = {
     stop: function(v, m, f){
         html5stuff.audioPause();
+        timer.timeIsUp = false;
         $('.timer').show();
         $('#bookmark').attr("href", document.location.href.split("?", 2)[0] + "?t=" + timer.time);
         $("#tempo").text(timer.time);
