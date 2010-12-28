@@ -23,6 +23,10 @@ handlers:
   upload: mapa/index.html
   static_files: mapa/index.html
 
+- url: /anonovo
+  upload: html/anonovo.html
+  static_files: html/anonovo.html
+
 - url: /mapa
   static_dir: mapa
 

@@ -4,14 +4,14 @@ div {
     color: #aaaaaa;
 }
 
-div.time {
+.time {
     margin-top: 150px;
     color: #ccffcc;
     font-size: 8em;
     font-weight: bold;
 }
 
-div#data {
+.data {
     color: #99cccc;
     font-size: 4em;
 }
