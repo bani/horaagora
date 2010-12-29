@@ -1,50 +1,49 @@
-var counterNewYear = {
+var countdown = {
+    year: 2010,
     days: 0,
     hours: 0,
     minutes: 0,
     seconds: 0,
     
-    initialize: function(){
+    sync: function(){
         $.getJSON("hora.json", function(time){
-            
-            if(time.date.split('/')[1] < 12) {
-                $("#full").hide();
-                $("#short").text("2011");
-            }
-            counterNewYear.days = 31 - time.date.split('/')[0];
-            counterNewYear.hours = 23 - time.hour;
-            counterNewYear.minutes = 59 - time.minute;
-            counterNewYear.seconds = time.update;
-            counterNewYear.update();
+            countdown.year = time.date.split('/')[2];
+            countdown.days = 31 - time.date.split('/')[0];
+            countdown.hours = 23 - time.hour;
+            countdown.minutes = 59 - time.minute;
+            countdown.seconds = time.update;
+            countdown.update();
         });
     },
     
     show: function(){
-        if (counterNewYear.minutes == 0 && counterNewYear.hours == 0 && counterNewYear.days == 0) {
+        if (countdown.minutes == 0 && countdown.hours == 0 && countdown.days == 0) {
             $("#full").hide();
-            $("#short").text(counterNewYear.seconds);
+            $("#short").text(countdown.seconds);
         }
         else {
-            $("#day").text(counterNewYear.days);
-            $("#hour").text(counterNewYear.hours);
-            $("#minute").text(counterNewYear.minutes);
-            $("#sec").text(counterNewYear.seconds);
+            $("#day").text(countdown.days);
+            $("#hour").text(countdown.hours);
+            $("#minute").text(countdown.minutes);
+            $("#sec").text(countdown.seconds);
         }
     },
     
     update: function(){
-        counterNewYear.show();
-        counterNewYear.seconds -= 1;
-        if (counterNewYear.seconds < 0) {
-            counterNewYear.seconds = 59;
-            counterNewYear.minutes -= 1;
-            if (counterNewYear.minutes < 0) {
-                counterNewYear.minutes = 59;
-                counterNewYear.hours -= 1;
-                if (counterNewYear.hours < 0) {
-                    counterNewYear.hours = 23;
-                    counterNewYear.days -= 1;
-                    if (counterNewYear.days < 0) {
+        countdown.show();
+        countdown.seconds -= 1;
+        if (countdown.seconds < 0) {
+            countdown.seconds = 59;
+            countdown.minutes -= 1;
+            if(countdown.minutes % 20 == 0)
+                countdown.sync();
+            if (countdown.minutes < 0) {
+                countdown.minutes = 59;
+                countdown.hours -= 1;
+                if (countdown.hours < 0) {
+                    countdown.hours = 23;
+                    countdown.days -= 1;
+                    if (countdown.days < 0) {
                         startFw();
                         _gaq.push(['_trackEvent', 'AnoNovo', '2011']);
                         return;
@@ -52,15 +51,23 @@ var counterNewYear = {
                 }
             }
         }
-        window.setTimeout("counterNewYear.update()", 1000);
+        window.setTimeout("countdown.update()", 1000);
     }
 }
 
 $(document).ready(function(){
-    counterNewYear.initialize();
+    countdown.sync();
+    if (countdown.year > 2010) {
+        $("#full").hide();
+        $("#short").text(countdown.year);
+    }
+    else {
+        $("#full").show();
+    }
 });
 
 /**
+ * FIREWORKS
  * You may use this code for free on any web page provided that
  * these comment lines and the following credit remain in the code.
  * Cross Browser Fireworks from http://www.javascript-fx.com
