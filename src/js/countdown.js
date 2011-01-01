@@ -35,8 +35,6 @@ var countdown = {
         if (countdown.seconds < 0) {
             countdown.seconds = 59;
             countdown.minutes -= 1;
-            if(countdown.minutes % 20 == 0)
-                countdown.sync();
             if (countdown.minutes < 0) {
                 countdown.minutes = 59;
                 countdown.hours -= 1;
