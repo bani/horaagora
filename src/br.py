@@ -10,8 +10,7 @@ class BR_tzinfo(datetime.tzinfo):
         return dt + datetime.timedelta(days=(6 - dt.weekday()))
 
     def dst(self, dt):
-        return datetime.timedelta(hours=1)
-        year = dt.year if dt.year > 6 else dt.year -1
+        year = dt.year
         
         # terceiro domingo de outubro
         dst_start = self._FirstSunday(datetime.datetime(year if dt.month > 6 else year-1, 10, 15, 0))

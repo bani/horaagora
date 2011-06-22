@@ -1,0 +1,20 @@
+{
+  "name": "Hora Agora",
+  "description": "Saiba a hora certa no Brasil. Inclui também cronômetro e mapa de fuso-horários.",
+  "version": "1",
+  "app": {
+    "urls": [
+      "http://www.horaagora.com/"
+    ],
+    "launch": {
+      "web_url": "http://www.horaagora.com/"
+    }
+  },
+  "icons": {
+    "128": "horaicon.png"
+  },
+  "permissions": [
+    "unlimitedStorage",
+    "notifications"
+  ]
+}
