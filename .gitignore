@@ -1,0 +1,4 @@
+.project
+.pydevproject
+src/html/.tmp_*
+*.pyc

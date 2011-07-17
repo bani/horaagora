@@ -29,6 +29,10 @@ handlers:
 
 - url: /mapa
   static_dir: mapa
+  
+- url: /placar
+  upload: html/placar.html
+  static_files: html/placar.html
 
 - url: /style
   static_dir: style
