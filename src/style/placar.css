@@ -47,6 +47,7 @@ input.default {
     cursor:pointer !important; cursor:hand;
     font-weight: bold;
     font-size: 16px;
+    vertical-align: middle;
 }
 .nome {
     height: 40px;
