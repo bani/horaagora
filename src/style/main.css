@@ -36,13 +36,32 @@ div.enableNotification {
     margin-top: 80px;
 }
 
-a.big:link {color: #99cccc;font-size: 2em;}
-a.big:active {color: #99cccc;font-size: 2em;}
-a.big:visited {color: #99cccc;font-size: 2em;}
+a.big:link {
+    color: #99cccc;
+    font-size: 2em;
+}
 
-a#bookmark:link {color: #99cccc;}
-a#bookmark:active {color: #99cccc;}
-a#bookmark:visited {color: #99cccc;}
+a.big:active {
+    color: #99cccc;
+    font-size: 2em;
+}
+
+a.big:visited {
+    color: #99cccc;
+    font-size: 2em;
+}
+
+a#bookmark:link {
+    color: #99cccc;
+}
+
+a#bookmark:active {
+    color: #99cccc;
+}
+
+a#bookmark:visited {
+    color: #99cccc;
+}
 
 div.share {
     margin-top: 10px;
@@ -65,4 +84,15 @@ a.stbar.chicklet img {
 a.stbar.chicklet {
     height: 16px;
     line-height: 16px;
+}
+
+#rodape {
+    width: 100%;
+    bottom: 10px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto
+}
+#___plusone_0 {
+    width:60px !important;
 }

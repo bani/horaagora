@@ -8,6 +8,10 @@ function up(pontos) {
     sound.playUp();
 }
 
+function excluir(jogador) {
+    $("#" + jogador).hide();
+}
+
 var sound = {
     up: undefined,
     down: undefined,
