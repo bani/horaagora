@@ -34,6 +34,10 @@ handlers:
   upload: html/placar.html
   static_files: html/placar.html
 
+- url: /sitemap.xml
+  upload: html/sitemap.xml
+  static_files: html/sitemap.xml
+
 - url: /style
   static_dir: style
   
