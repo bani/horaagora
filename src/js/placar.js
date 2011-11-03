@@ -12,6 +12,12 @@ function excluir(jogador) {
     $("#" + jogador).hide();
 }
 
+function resetPlacar() {
+	for (i = 1; i<=8; i++) {
+		$("#pontos" + i).text("1");
+	}
+}
+
 var sound = {
     up: undefined,
     down: undefined,

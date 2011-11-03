@@ -34,9 +34,17 @@ handlers:
   upload: html/placar.html
   static_files: html/placar.html
 
-- url: /sitemap.xml
+- url: /sitemap\.xml
   upload: html/sitemap.xml
   static_files: html/sitemap.xml
+
+- url: /robots\.txt
+  upload: html/robots.txt
+  static_files: html/robots.txt
+
+- url: /favicon\.ico
+  static_files: style/favicon.ico
+  upload: style/favicon.ico
 
 - url: /style
   static_dir: style
