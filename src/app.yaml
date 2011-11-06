@@ -55,3 +55,7 @@ handlers:
 - url: /timer.manifest
   upload: html/timer.manifest
   static_files: html/timer.manifest
+  
+- url: /placar.manifest
+  upload: html/placar.manifest
+  static_files: html/placar.manifest
