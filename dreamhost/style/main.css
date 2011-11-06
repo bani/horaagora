@@ -1,0 +1,98 @@
+div {
+    text-align: center;
+    font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+    color: #aaaaaa;
+}
+
+.time {
+    margin-top: 150px;
+    color: #ccffcc;
+    font-size: 8em;
+    font-weight: bold;
+}
+
+.data {
+    color: #99cccc;
+    font-size: 4em;
+}
+
+div.vspace {
+    margin-top: 120px;
+    font-size: 1em;
+}
+
+div#about {
+    visibility: hidden;
+    font-size: x-small;
+}
+
+div.timer {
+    display: none;
+    margin-top: 50px;
+}
+
+div.enableNotification {
+    display: none;
+    margin-top: 80px;
+}
+
+a.big:link {
+    color: #99cccc;
+    font-size: 2em;
+}
+
+a.big:active {
+    color: #99cccc;
+    font-size: 2em;
+}
+
+a.big:visited {
+    color: #99cccc;
+    font-size: 2em;
+}
+
+a#bookmark:link {
+    color: #99cccc;
+}
+
+a#bookmark:active {
+    color: #99cccc;
+}
+
+a#bookmark:visited {
+    color: #99cccc;
+}
+
+div.share {
+    margin-top: 10px;
+}
+
+body {
+    background-color: #222222;
+    font-family: helvetica, sans-serif;
+    font-size: 12px;
+}
+
+a.stbar.chicklet img {
+    border: 0;
+    height: 16px;
+    width: 16px;
+    margin-right: 3px;
+    vertical-align: middle;
+}
+
+a.stbar.chicklet {
+    height: 16px;
+    line-height: 16px;
+}
+
+#rodape {
+    width: 100%;
+    bottom: 10px;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto
+}
+#___plusone_0 {
+    width:60px !important;
+}

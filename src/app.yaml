@@ -1,9 +1,12 @@
 application: bani
-version: 2
+version: 3
 runtime: python
 api_version: 1
 
 handlers:
+
+- url: /hora.callback
+  script: horaagora.py
 
 - url: /hora.json
   script: horaagora.py

@@ -1,0 +1,126 @@
+<html manifest="placar.manifest">
+    <head>
+        <title>Jogatina</title>
+        <meta http-equiv="Description" content="Placar para jogos de cartas, tabuleiro e afins"/>
+        <meta http-equiv="Keywords" content="jogo, placar, n’vel, cartas, tabuleiro"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript">
+        </script>
+        
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-4126737-4']);
+            _gaq.push(['_setDomainName', '.horaagora.com']);
+            _gaq.push(['_trackPageview']);
+            _gaq.push(['_trackPageLoadTime']);
+            
+            (function(){
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+            
+        </script>
+        <script src="../js/placar.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="../style/placar.css" />
+        <style type="text/css">
+        div#about {
+        visibility: hidden;
+        font-size: x-small;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="placar">
+            <div id="jogador1" class="jogador">
+                <input type="text" class="nome" id="nome1">
+                <p class="linha">
+                <input type="button" id="down1" class="down" value="-" onclick="down('pontos1');">
+                <label for="nome1" id="pontos1" class="pontos">0</label>
+                <input type="button" id="up1" class="up" value="+" onclick="up('pontos1');">
+                </p>
+                <div class="fechar"><a href="" onclick="excluir('jogador1'); return false;">X</a></div>
+            </div>
+            
+            <div id="jogador2" class="jogador">
+                <input type="text" class="nome" id="nome2">
+                <p class="linha">
+                <input type="button" id="down2" class="down" value="-" onclick="down('pontos2');">
+                <label for="nome2" id="pontos2" class="pontos">0</label>
+                <input type="button" id="up2" class="up" value="+" onclick="up('pontos2');">
+                </p>
+                <div class="fechar"><a href="" onclick="excluir('jogador2'); return false;">X</a></div>
+            </div>
+            
+            <div id="jogador3" class="jogador">
+                <input type="text" class="nome" id="nome3">
+                <p class="linha">
+                <input type="button" id="down3" class="down" value="-" onclick="down('pontos3');">
+                <label for="nome3" id="pontos3" class="pontos">0</label>
+                <input type="button" id="up3" class="up" value="+" onclick="up('pontos3');">
+                </p>
+                <div class="fechar"><a href="" onclick="excluir('jogador3'); return false;">X</a></div>
+            </div>
+            
+            <div id="jogador4" class="jogador">
+                <input type="text" class="nome" id="nome4">
+                <p class="linha">
+                <input type="button" id="down4" class="down" value="-" onclick="down('pontos4');">
+                <label for="nome4" id="pontos4" class="pontos">0</label>
+                <input type="button" id="up4" class="up" value="+" onclick="up('pontos4');">
+                </p>
+                <div class="fechar"><a href="" onclick="excluir('jogador4'); return false;">X</a></div>
+            </div>
+            
+            <div id="jogador5" class="jogador">
+                <input type="text" class="nome" id="nome5">
+                <p class="linha">
+                <input type="button" id="down5" class="down" value="-" onclick="down('pontos5');">
+                <label for="nome5" id="pontos5" class="pontos">0</label>
+                <input type="button" id="up5" class="up" value="+" onclick="up('pontos5');">
+                </p>
+                <div class="fechar"><a href="" onclick="excluir('jogador5'); return false;">X</a></div>
+            </div>
+            
+            <div id="jogador6" class="jogador">
+                <input type="text" class="nome" id="nome6">
+                <p class="linha">
+                <input type="button" id="down6" class="down" value="-" onclick="down('pontos6');">
+                <label for="nome6" id="pontos6" class="pontos">0</label>
+                <input type="button" id="up6" class="up" value="+" onclick="up('pontos6');">
+                </p>
+                <div class="fechar"><a href="" onclick="excluir('jogador6'); return false;">X</a></div>
+            </div>
+            
+            <div id="jogador7" class="jogador">
+                <input type="text" class="nome" id="nome6">
+                <p class="linha">
+                <input type="button" id="down7" class="down" value="-" onclick="down('pontos7');">
+                <label for="nome6" id="pontos7" class="pontos">0</label>
+                <input type="button" id="up7" class="up" value="+" onclick="up('pontos7');">
+                </p>
+                <div class="fechar"><a href="" onclick="excluir('jogador7'); return false;">X</a></div>
+            </div>
+            
+            <div id="jogador8" class="jogador">
+                <input type="text" class="nome" id="nome6">
+                <p class="linha">
+                <input type="button" id="down8" class="down" value="-" onclick="down('pontos8');">
+                <label for="nome6" id="pontos8" class="pontos">0</label>
+                <input type="button" id="up8" class="up" value="+" onclick="up('pontos8');">
+                </p>
+                <div class="fechar"><a href="" onclick="excluir('jogador8'); return false;">X</a></div>
+            </div>
+            
+            <div class="fechar"><a href="" onclick="resetPlacar(); return false;">RESET</a></div>
+        </div>
+        <div id="about">
+            <h1>Placar</h1>
+            <p>
+                Placar online para jogos. Suporta at&eacute; seis jogadores.
+            </p>
+        </div>
+    </body>
+</html>

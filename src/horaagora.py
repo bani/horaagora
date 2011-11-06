@@ -1,5 +1,6 @@
 from google.appengine.ext import webapp
 from google.appengine.ext.webapp.util import run_wsgi_app
+import cgi
 import datetime
 import br
 
@@ -14,21 +15,29 @@ except ImportError:
         except:
             raise Exception("SimpleJson nao encontrado")
 
+def getTime():
+    d = datetime.datetime.now(br.BR_tzinfo());
 
-class HoraPage(webapp.RequestHandler):
+    json = {
+            "date" : d.strftime("%d/%m/%Y"),
+            "hour" : d.hour,
+            "minute" : d.strftime("%M"),
+            "update" : 60 - d.second
+            }
+    return json
+
+class HoraJson(webapp.RequestHandler):
     def get(self):
         self.response.headers['Content-Type'] = 'application/json'
-        d = datetime.datetime.now(br.BR_tzinfo());
+        self.response.out.write(simplejson.dumps(getTime()));
 
-        json = {
-                "date" : d.strftime("%d/%m/%Y"),
-                "hour" : d.hour,
-                "minute" : d.strftime("%M"),
-                "update" : 60 - d.second
-                }
-        self.response.out.write(simplejson.dumps(json));
+class HoraJsonp(webapp.RequestHandler):
+    def get(self):
+        function = cgi.escape(self.request.get('callback'))
+        self.response.headers['Content-Type'] = 'application/javascript'
+        self.response.out.write("%s(%s)" % (function, simplejson.dumps(getTime())));
 
-application = webapp.WSGIApplication([('/hora.json', HoraPage)], debug=True)
+application = webapp.WSGIApplication([('/hora.json', HoraJson), ('/hora.callback', HoraJsonp)], debug=True)
 
 
 def main():
