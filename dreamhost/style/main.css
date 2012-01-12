@@ -1,3 +1,5 @@
+body {overflow-x: hidden;}
+
 div {
     text-align: center;
     font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
