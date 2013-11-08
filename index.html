@@ -1,0 +1,148 @@
+<html itemscope itemtype="http://schema.org/WebPage" xmlns:og="http://opengraphprotocol.org/schema/">
+
+    <head>
+        <title>Hora Agora - a hora certa no Brasil</title>
+        <meta http-equiv="Description" content="O relogio quebrou? Esta atrasado ou adiantado? Saiba a hora certa agora entrando em www.horaagora.com"/>
+        <meta http-equiv="Keywords" content="hora, horario, tempo, minuto, agora, relogio, atrasado, adiantado"/>
+        <meta itemprop="name" content="Hora Agora">
+        <meta itemprop="description" content="Saiba a hora certa no Brasil agora">
+        <meta itemprop="image" content="http://www.horaagora.com/style/horaicon.png">
+        
+        <meta property="og:title" content="Hora Agora" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="http://www.horaagora.com" />
+        <meta property="og:image" content="http://www.horaagora.com/style/horaicon.png" />
+        <meta property="og:site_name" content="Hora Agora" />
+        <meta property="fb:admins" content="641688377" />
+        
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:url" content="http://www.horaagora.com">
+        <meta name="twitter:title" content="Hora Agora">
+        <meta name="twitter:description" content="Saiba a hora certa no Brasil agora entrando em www.horaagora.com">
+        <meta name="twitter:image" content="http://www.horaagora.com/style/horaicon.png">
+        <meta name="twitter:site" content="@bani">
+        <meta name="twitter:site:id" content="9365652">
+        <meta name="twitter:creator" content="@bani">
+        <meta name="twitter:creator:id" content="9365652">
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.6/jquery.min.js" type="text/javascript"></script>
+        <link rel="stylesheet" type="text/css" href="style/main.css" />
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-4126737-4']);
+            _gaq.push(['_setDomainName', '.horaagora.com']);
+            _gaq.push(['_setSessionCookieTimeout', 0]);
+            _gaq.push(['_trackPageview']);
+            
+            (function(){
+                var ga = document.createElement('script');
+                ga.type = 'text/javascript';
+                ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+        <script src="js/hora.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="time">
+            <span id="hour">--</span><blink>:</blink><span id="minute">--</span><!-- blink = piada interna -->
+        </div>
+        <div class="data" id="data">
+        </div>
+        <div id="more" class="vspace">
+        	<a href="timer"><img src="style/cronometro.png" alt="Contagem Regressiva" title="Cron&ocirc;metro de contagem regressiva" border="0" /></a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="placar"><img src="style/placar.png" alt="Placar de Jogos" title="Acompanhe a pontua&ccedil;&atilde;o do seu jogo" border="0" /></a>
+        </div>
+        <div id="about">
+            <h1>Hora Agora</h1>
+            <h2>Sobre</h2>
+            <p>
+                Voc&ecirc; sabe qual &eacute; a hora certa agora?
+            </p>
+        </div>
+        
+        <div id="rodape">
+        <!--<div id="dreamhost">
+            <p>
+                Este site est&aacute; hospedado na <a href="http://www.dreamhost.com/r.cgi?1232915" onclick="_gaq.push(['_trackEvent','affiliate','dreamhost','home-dreamhost',0,false]);">Dreamhost</a>. Crie o seu: planos a partir de <a href="http://www.dreamhost.com/r.cgi?1232915" onclick="_gaq.push(['_trackEvent','affiliate','dreamhost','home-preco',0,false]);">US$8,95 por m&ecirc;s</a>!
+            </p>
+        </div>-->
+            <div id="fb-root"></div>
+            <script>(function(d, s, id) {
+              var js, fjs = d.getElementsByTagName(s)[0];
+              if (d.getElementById(id)) {return;}
+              js = d.createElement(s); js.id = id;
+              js.src = "//connect.facebook.net/pt_BR/all.js#xfbml=1";
+              fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));</script>
+            
+            <div class="fb-like" data-href="http://www.horaagora.com" data-send="true" data-layout="button_count" data-width="100" data-show-faces="false" data-colorscheme="light"></div>           
+            <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://www.horaagora.com" data-count="horizontal" data-via="bani" data-lang="pt">Tweet</a><script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+            <g:plusone size="medium"></g:plusone></div>
+
+        </div>
+        
+        <!-- Google Plus -->
+        <script type="text/javascript">
+          window.___gcfg = {lang: 'pt-BR'};
+        
+          (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/plusone.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+          })();
+        </script>
+
+        <!-- tracking -->
+        <script type="text/javascript">
+            if (FB && twttr) {
+                twttr.events.bind('tweet', function(event){
+                    if (event) {
+                        var targetUrl;
+                        if (event.target && event.target.nodeName == 'IFRAME') {
+                            targetUrl = extractParamFromUri(event.target.src, 'url');
+                        }
+                        _gaq.push(['_trackSocial', 'Twitter', 'tweet', targetUrl]);
+                    }
+                });
+                FB.Event.subscribe('message.send', function(targetUrl){
+                    _gaq.push(['_trackSocial', 'Facebook', 'send', targetUrl]);
+                });
+                FB.Event.subscribe('edge.remove', function(targetUrl){
+                    _gaq.push(['_trackSocial', 'Facebook', 'unlike', targetUrl]);
+                });
+                FB.Event.subscribe('edge.create', function(targetUrl){
+                    _gaq.push(['_trackSocial', 'Facebook', 'like', targetUrl]);
+                });
+            }
+        </script>
+        
+		<script type="text/javascript">
+			var uservoiceOptions = {
+			  /* required */
+			  key: 'bani',
+			  host: 'bani.uservoice.com', 
+			  forum: '75341',
+			  showTab: true,  
+			  /* optional */
+			  alignment: 'right',
+			  background_color:'#99CCCC', 
+			  text_color: 'black',
+			  hover_color: '#CCFFCC',
+			  lang: 'en'
+			};
+			
+			function _loadUserVoice() {
+			  var s = document.createElement('script');
+			  s.setAttribute('type', 'text/javascript');
+			  s.setAttribute('src', ("https:" == document.location.protocol ? "https://" : "http://") + "cdn.uservoice.com/javascripts/widgets/tab.js");
+			  document.getElementsByTagName('head')[0].appendChild(s);
+			}
+			_loadSuper = window.onload;
+			window.onload = (typeof window.onload != 'function') ? _loadUserVoice : function() { _loadSuper(); _loadUserVoice(); };
+		</script>
+    </body>
+</html>

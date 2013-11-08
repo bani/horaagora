@@ -1,0 +1,85 @@
+div#placar {
+    margin-left: auto;
+    margin-right: auto;
+    align: center;
+    text-align: center;
+}
+
+div.jogador {
+    position: relative; float: left;
+    width: 240px;
+    height: 150px;
+    margin: 20px;
+    padding: 10px;
+    background-color: #ddd;
+    text-align: center;
+    color: #800000;
+}
+
+body {
+    background-color: #222;
+}
+
+.pontos {
+    font-family: Zapf Chancery, cursive;
+    font-size: 6em;
+    font-weight: bold;
+    margin: 20px;
+}
+
+
+input {
+    border:1px solid #ddd;
+    background:#fafafa;
+    -moz-border-radius:0.4em;
+    -khtml-border-radius:0.4em;
+}
+input:hover, input:focus {
+    border-color:#c5c5c5;
+    background:#f6f6f6;
+} 
+
+input.default {
+    color:#bbb;
+}
+.down,.up {
+    margin-top: -30px;
+    width: 42px;
+    height: 42px;
+    cursor:pointer !important; cursor:hand;
+    font-weight: bold;
+    font-size: 16px;
+    vertical-align: middle;
+}
+.nome {
+    height: 40px;
+    text-align: center;
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 16px;
+}
+
+.linha {
+    margin-top: -30px;
+    vertical-align: middle;
+}
+
+label {
+    float: none;
+}
+
+.fechar {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-family: sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    color: #222;
+}
+
+a:link, a:hover, a:visited {
+    color: #222;
+    text-decoration: none;
+}
+
