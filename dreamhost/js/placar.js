@@ -24,9 +24,9 @@ var sound = {
     audioInit: function(){
         try {
             this.up = document.createElement('audio');
-            this.up.setAttribute('src', 'http://www.horaagora.com/style/up.wav');
+            this.up.setAttribute('src', 'http://baniverso.com/horaagora/style/up.wav');
             this.down = document.createElement('audio');
-            this.down.setAttribute('src', 'http://www.horaagora.com/style/down.wav');
+            this.down.setAttribute('src', 'http://baniverso.com/horaagora/style/down.wav');
         } 
         catch (err) {}
     },
