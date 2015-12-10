@@ -107,7 +107,7 @@ var html5stuff = {
     audioInit: function(){
         try {
             this.audioElement = document.createElement('audio');
-            this.audioElement.setAttribute('src', 'http://www.horaagora.com/style/timer.ogg');
+            this.audioElement.setAttribute('src', 'http://baniverso.com/horaagora/style/timer.ogg');
             this.audioElement.addEventListener('ended', function(){
                 this.currentTime = 0; // toca em loop
             }, false);
@@ -137,7 +137,7 @@ var html5stuff = {
     notificationShow: function(){
         try {
             if (window.webkitNotifications && window.webkitNotifications.checkPermission() == 0) {
-                this.notificationElement = window.webkitNotifications.createNotification("http://www.horaagora.com/style/cronometro.png", "Timer", "Tempo Esgotado!");
+                this.notificationElement = window.webkitNotifications.createNotification("http://baniverso.com/horaagora/style/cronometro.png", "Timer", "Tempo Esgotado!");
                 this.notificationElement.onclose = function(){
                     html5stuff.audioPause();
                 };
