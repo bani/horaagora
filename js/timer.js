@@ -109,7 +109,7 @@ var html5stuff = {
             this.audioElement = document.createElement('audio');
             this.audioElement.setAttribute('src', 'http://baniverso.com/horaagora/style/timer.ogg');
             this.audioElement.addEventListener('ended', function(){
-                this.currentTime = 0; // toca em loop
+                this.currentTime = 0; // loop
             }, false);
         } 
         catch (err) {}
