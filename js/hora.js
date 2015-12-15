@@ -25,7 +25,7 @@ function updateTime(data) {
 
 function localTime() {
 	var currentTime = new Date();
-	$("#data").text(currentTime.getDate() + "/" + currentTime.getMonth() + "/" + currentTime.getYear());
+	$("#data").text(currentTime.getDate() + "/" + (currentTime.getMonth()+1) + "/" + currentTime.getFullYear());
     $("#hour").text(currentTime.getHours());
     $("#minute").text(currentTime.getMinutes());
 }
